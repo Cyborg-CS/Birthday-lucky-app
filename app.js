@@ -1,39 +1,37 @@
-const userBirthday = document.querySelector("#birthday");
-const userLuckynum = document.querySelector("#lucky-number");
-const checkButton = document.querySelector("#check-btn");
-const resultArea = document.querySelector("#result-box");
-const errorMessage = document.querySelector("#error-message");
+const birthDate = document.querySelector("#birthday");
+const luckyNumber = document.querySelector("#lucky-number");
+const checkBtn = document.querySelector("#check-btn");
+const resultBox = document.querySelector("#result-box");
 
-checkButton.addEventListener("click", verifyBirthdayAndLuckyNumber()); 
+function compareValues(sum, luckyNumber){
+   if(sum % luckyNumber){
+       resultBox.innerText = "Yup !"
+   }else{
+       resultBox.innerText = "Nope !"
+   } 
+}
 
-function verifyBirthdayAndLuckyNumber(){
-    hideMessage();
-    if(userLuckynum.value = null ){
+
+
+function calculateSum(date){
+   const dob = date.replaceAll("-","");
+   let sum = 0;
+   for(let index = 0; index < dob.length; index++){
+       sum = sum + Number(dob.charAt(index))
+   };
+   return sum;
+   
+}
+
+
+checkBtn.addEventListener('click', function birthdayLuckCheck(){
+    const date =  birthDate.value;
+    var sum = calculateSum(date);
+    var userLuckyNumber = luckyNumber.value; 
+    compareValues(sum,userLuckyNumber);
+    if(sum && userLuckyNumber){
         
     }else{
-        showMessage("fill your date of birth !")
-    };
-};
-
-
-function hideMessage() {
-    errorMessage.style.display = "none";
-}
-
-function showMessage(message) {
-    errorMessage.style.display = "block";
-    errorMessage.innerText = message;
-}
-// function hideMessage(){
-//   errorMessage.style.display = "none";
-// };
-
-// function showMessage(message){
-//     errorMessage.style.display = "block";
-//     errorMessage.innerText = message;
-// }
-
-
- 
-
-
+      resultBox.innerText = "Fill-Up both fields !"  
+    }
+});
