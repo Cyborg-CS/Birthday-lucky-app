@@ -5,17 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <title>Document</title>
+    <title>LuckyBirthday</title>
 </head>
 <body>
     
+    <main class="main-container">
     <h1 id="header-text">Is your birthday lucky ?</h1>
-    <label for="birthday">Date of Birth</label>
-    <input type="date" id="birthday" name="Birthday"/>
-    <label for="lucky-number">Your Lucky Number</label>
-    <input type="number" id="lucky-number"/>
+    <section>
+    <div>
+        <label for="lucky-number" class="input-lable"><p>
+            Your Date of Birth:
+        </p></label>
+    <input type="date" id="birthday" name="Birthday" class="input-angles"/>
+</div>
+</section>
+<section> 
+<div>   
+<label for="lucky-number" class="input-lable"><p>
+    Enter your lucky number :
+</p></label>
+    <input type="number" id="lucky-number" class="input-angles"/>
+</div> 
     <button id="check-btn">Check</button>
-    <textarea id="result-box" placeholder="Result will arrive here" disabled></textarea> 
+
+</section>
+    <div id="result-box" class="output"><h2 class="output-tag">
+    </h2>
+    <img src="./images/lucky.gif" alt="Guy Sensei gives you a thumbs up !" id="lucky-img" class="gif-container"/>
+    <img src="./images/notlucky.gif" alt="I'm sorry mate" id="notlucky-img" class="gif-container"/>
+</div>
+</main> 
     <!-- <p id="error-message"></p> -->
 
     <script src="./app.js" type="text/javascript"></script>

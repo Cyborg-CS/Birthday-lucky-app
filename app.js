@@ -1,13 +1,22 @@
 const birthDate = document.querySelector("#birthday");
 const luckyNumber = document.querySelector("#lucky-number");
 const checkBtn = document.querySelector("#check-btn");
-const resultBox = document.querySelector("#result-box");
+const resultBox = document.querySelector(".output-tag");
+const luckyImg = document.getElementById("lucky-img");
+const notLuckyImg = document.getElementById("notlucky-img");
+
 
 function compareValues(sum, luckyNumber){
-   if(sum % luckyNumber){
-       resultBox.innerText = "Yup !"
+   if(sum % luckyNumber === 0){
+    luckyImg.style.display = "block";
+    notLuckyImg.style.display = "none";
+    resultBox.style.color = "green";   
+    resultBox.innerText = "Yup! You got a lucky brithday. "
    }else{
-       resultBox.innerText = "Nope !"
+    notLuckyImg.style.display = "block";
+    luckyImg.style.display = "none";
+    resultBox.style.color = "red";    
+    resultBox.innerText = "Your Bithday isn't that lucky i guess"
    } 
 }
 
@@ -22,15 +31,18 @@ function calculateSum(date){
    return sum;
    
 }
+//Intial declarations//
+alert("Note: Our site doesn't store any of your data");
+luckyImg.style.display = "none";
+notLuckyImg.style.display = "none";
 
-
+//clickhandeler function starts...
 checkBtn.addEventListener('click', function birthdayLuckCheck(){
-    const date =  birthDate.value;
-    var sum = calculateSum(date);
+    var date =  birthDate.value;
     var userLuckyNumber = luckyNumber.value; 
-    compareValues(sum,userLuckyNumber);
-    if(sum && userLuckyNumber){
-        
+    if(date && userLuckyNumber){
+      var sum = calculateSum(date);
+      compareValues(sum,userLuckyNumber); 
     }else{
       resultBox.innerText = "Fill-Up both fields !"  
     }
