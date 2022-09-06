@@ -39,10 +39,14 @@ notLuckyImg.style.display = "none";
 //clickhandeler function starts...
 checkBtn.addEventListener('click', function birthdayLuckCheck(){
     var date =  birthDate.value;
-    var userLuckyNumber = luckyNumber.value; 
+    var userLuckyNumber = Number(luckyNumber.value); 
     if(date && userLuckyNumber){
+      if(userLuckyNumber > 0){
       var sum = calculateSum(date);
-      compareValues(sum,userLuckyNumber); 
+      compareValues(sum,userLuckyNumber);
+    }else{
+      resultBox.innerText = "Luckynumber should be a positive number !";
+    } 
     }else{
       resultBox.innerText = "Fill-Up both fields !"  
     }
