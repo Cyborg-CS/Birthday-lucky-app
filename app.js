@@ -45,7 +45,7 @@ checkBtn.addEventListener('click', function birthdayLuckCheck(){
       var sum = calculateSum(date);
       compareValues(sum,userLuckyNumber);
     }else{
-      resultBox.innerText = "Luckynumber should be a positive number !";
+      resultBox.innerText = "Lucky number should be a positive number !";
     } 
     }else{
       resultBox.innerText = "Fill-Up both fields !"  
